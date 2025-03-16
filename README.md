@@ -41,7 +41,7 @@ To address these challenges, we have developed a platform that leverages agentic
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Aniketwarule/NGOLedger.git
+   git clone https://github.com/Aniketwarule/Crazy8_ByteCamp2025.git
    ```
 2. Navigate to the project directory (Frontend):
    ```bash
@@ -99,7 +99,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 - **Project Maintainer**: Team Crazy8
 
-- **Project Link**: https://github.com/Aniketwarule/NGOLedger
+- **Project Link**: https://github.com/Aniketwarule/Crazy8_ByteCamp2025
 
 ## Acknowledgments
 
