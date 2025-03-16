@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { contract } from "@/lib/contract";
 import { ArrowUpRight, Copy, LogOut } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Key, useEffect, useState } from "react";
 import { formatEther } from "viem";
 import { useAccount, useBalance, useReadContract } from "wagmi";
 
@@ -95,9 +95,9 @@ export default function WalletPage() {
 
             {donationsLoading ? (
               <p >Loading donations...</p>
-            ) : donations && donations.length > 0 ? (
+            ) : Array.isArray(donations) && donations.length > 0 ? (
               <ul className="space-y-4">
-                {donations[0].map((amount, index) => (
+                {donations[0].map((amount: any, index: any) => (
                   <li key={index} className="p-3 border rounded-md">
                     <p>
                       <strong>Amount:</strong>{" "}
