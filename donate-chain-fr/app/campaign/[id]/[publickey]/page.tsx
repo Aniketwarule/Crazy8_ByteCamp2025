@@ -19,7 +19,6 @@ import axios from "axios";
 import { useWriteContract } from "wagmi";
 import { parseEther } from "viem"; // ✅ Converts ETH to Wei
 import { contract } from "../../../../lib/contract";
-import { headers } from "next/headers";
 
 export default function CampaignPage() {
   const router = useRouter();
@@ -34,13 +33,13 @@ export default function CampaignPage() {
   useEffect(() => {
     async function fetchCampaign() {
       try {
-        const response = await axios.get(`http://localhost:5000/campaigns/${id}`);
+        const response = await axios.get(`https://ngoledger.onrender.com/campaigns/${id}`);
         if (response.data) {
           console.log(response.data);
           setCampaignData(response.data);
         }
 
-        const response2 = await axios.get(`http://localhost:5000/milestones`);
+        const response2 = await axios.get(`https://ngoledger.onrender.com/milestones`);
         if (response2.data) {
           setMilestones(response2.data);
         }
@@ -71,7 +70,7 @@ export default function CampaignPage() {
         ],
       });
 
-      const response = await axios.post(`http://localhost:5000/campaigns/${campaignData.id}/updateRaised`, {amount: donationAmount}, {
+      const response = await axios.post(`https://ngoledger.onrender.com/campaigns/${campaignData.id}/updateRaised`, {amount: donationAmount}, {
           headers: {  
             'Content-Type': 'application/json'
           }
@@ -99,7 +98,7 @@ export default function CampaignPage() {
             <div className="p-4 pl-0 rounded-lg shadow-md">
               <div className="relative aspect-video overflow-hidden rounded-lg">
                 <Image
-                  src={`http://localhost:5000/uploads/${img1}`}
+                  src={`https://ngoledger.onrender.com/uploads/${img1}`}
                   alt={campaignData.title}
                   fill
                   className="object-cover"

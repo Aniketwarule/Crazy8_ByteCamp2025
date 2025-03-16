@@ -3,11 +3,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { contract } from "@/lib/contract";
-import { writeContract } from "viem/actions";
 import { useWriteContract } from "wagmi";
 import { CheckCircle, Loader2 } from "lucide-react";
 import { useState } from "react";
@@ -47,7 +45,7 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
             <div className="relative aspect-video overflow-hidden rounded-lg">
             <img
                     //src=`D:\100xdev\distriburted-donation\donation_bk\uploads ${img1}`;
-                    src={`http://localhost:5000/uploads/${img1}`}
+                    src={`https://ngoledger.onrender.com/uploads/${img1}`}
                     alt="External Image"
                     // unoptimized
                     width={300}
@@ -133,7 +131,7 @@ export function CampaignCard2({ campaign }: CampaignCardProps) {
           <div className="p-6 pt-6">
             <div className="relative aspect-video overflow-hidden rounded-lg">
               <img
-                src={`http://localhost:5000/uploads/${img1}`}
+                src={`https://ngoledger.onrender.com/uploads/${img1}`}
                 alt="Campaign Image"
                 width={300}
                 height={200}

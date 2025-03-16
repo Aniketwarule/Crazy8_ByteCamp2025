@@ -28,7 +28,7 @@ export default function WalletPage() {
     args: [address as `0x${string}`],
   });
 
-  console.log(donations)
+  console.log(donations);
 
   // ✅ Get wallet balance
   const { data: balance } = useBalance({
@@ -64,7 +64,9 @@ export default function WalletPage() {
               <div>
                 <p className="text-sm text-muted-foreground">Address</p>
                 <div className="mt-1 flex items-center gap-2">
-                  <code className="rounded bg-muted px-2 py-1">{address || "N/A"}</code>
+                  <code className="rounded bg-muted px-2 py-1">
+                    {address || "N/A"}
+                  </code>
                   <Button
                     variant="ghost"
                     size="icon"
@@ -87,22 +89,35 @@ export default function WalletPage() {
           </Card>
 
           {/* Display Donations */}
-          <div className="lg:col-span-2">
-            <p className="text-sm text-muted-foreground">All Donations</p>
+          {/* Display Donations */}
+          <div className="lg:col-span-2 p-4 border rounded-lg shadow-sm">
+            <p className="text-lg font-semibold">All Donations</p>
+
             {donationsLoading ? (
-              <p>Loading donations...</p>
-            ) : donations ? (
-              <ul>
-                amount: {donations[0] / 1000000000000000000}
-                <br />
-                Campaign Name: {donations[1]}
-                <br />
-                NGO Address: {donations[2]}
-                <br />
-                <br />
+              <p >Loading donations...</p>
+            ) : donations && donations.length > 0 ? (
+              <ul className="space-y-4">
+                {donations[0].map((amount, index) => (
+                  <li key={index} className="p-3 border rounded-md">
+                    <p>
+                      <strong>Amount:</strong>{" "}
+                      {(Number(amount) / 1e18).toFixed(4)} ETH
+                    </p>
+                    <p>
+                      <strong>Campaign Name:</strong>{" "}
+                      {donations[1][index] || "N/A"}
+                    </p>
+                    <p>
+                      <strong>NGO Address:</strong>{" "}
+                      <span className="break-all">
+                        {donations[2][index] || "N/A"}
+                      </span>
+                    </p>
+                  </li>
+                ))}
               </ul>
             ) : (
-              <p>No donations found.</p>
+              <p className="text-gray-500">No donations found.</p>
             )}
           </div>
         </div>

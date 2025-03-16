@@ -2,9 +2,8 @@
 
 import { Navbar } from "@/components/navbar";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, Filter } from "lucide-react";
+import { Search } from "lucide-react";
 import { useState } from "react";
 import { CampaignCard } from "@/components/campaign-card";
 import { motion } from "framer-motion";
@@ -19,7 +18,7 @@ export default function CampaignsPage() {
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
-        const response = await fetch("http://localhost:5000/campaigns");
+        const response = await fetch("https://ngoledger.onrender.com/campaigns");
         if (!response.ok) {
           throw new Error("Failed to fetch campaigns");
         }

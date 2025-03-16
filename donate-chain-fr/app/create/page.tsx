@@ -6,8 +6,8 @@
     import { Input } from "@/components/ui/input";
     import { Textarea } from "@/components/ui/textarea";
     import { Label } from "@/components/ui/label";
-    import { use, useEffect, useState } from "react";
-    import { ImagePlus, Loader2, Upload } from "lucide-react";
+    import { useEffect, useState } from "react";
+    import { Loader2 } from "lucide-react";
     import { motion } from "framer-motion";
     import axios from "axios";
     import { useAccount } from "wagmi";
@@ -103,7 +103,7 @@
         formData.append("milestones", JSON.stringify(milestones));
     
         try {
-          const response = await axios.post("http://localhost:5000/create-campaign", formData, {
+          const response = await axios.post("https://ngoledger.onrender.com/create-campaign", formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }

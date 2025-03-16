@@ -30,7 +30,7 @@ export default function CampaignsPage() {
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
-        const response = await fetch("http://localhost:5000/campaigns");
+        const response = await fetch("https://ngoledger.onrender.com/campaigns");
         if (!response.ok) {
           throw new Error("Failed to fetch campaigns");
         }
