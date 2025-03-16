@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Campaign {
+  id                    String      @id @default(uuid())
+  walletaddress         String?
+  title                 String?
+  description           String?
+  raised                String?
+  imageUrl              String?
+  goal                  String?
+  daysLeft              Int?
+  createdAt             DateTime    @default(now())
+  ngoRegistrationNumber String?
+  contactName           String?
+  contactEmail          String?
+  contactPhone          String?
+  certificateUrl        String?
+  supportingDocUrl      String?
+}
+
+model Milestone {
+  id         String   @id @default(uuid())
+  title      String
+  amount     String
+  status     String
+  campaignId String
+}
